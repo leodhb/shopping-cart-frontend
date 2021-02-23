@@ -1,0 +1,8 @@
+:root {
+    --s-purple: #c06ed1;
+    --s-dark: #333;
+}
+
+html, body {
+    font-family: 'Poppins';
+}

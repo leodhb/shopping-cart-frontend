@@ -1,0 +1,23 @@
+.App {
+    width: 100%;
+}
+
+.App  .sallve-productList {
+  border-right: solid 1px #ccc;
+  overflow-y: auto;
+  height: 80vh;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(192,110,209, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(192,110,209, 0.5);
+}
