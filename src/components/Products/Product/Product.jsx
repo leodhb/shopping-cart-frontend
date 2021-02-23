@@ -7,7 +7,8 @@ const Product = (props) => {
         <div className="card sallve-ProductCard">
             <img src={props.image} className="card-img-top"  alt="Foto de "></img>
             <div className="card-body px-0">
-                <h5 className="sallve-ProductTitle"> {props.children} </h5>
+                <h6>R$  {props.price} </h6>
+                <h5 className="sallve-ProductTitle">{props.children}</h5>
                 <a href="#" className="sallve-ComprarBtn">comprar</a>
             </div>
         </div>
