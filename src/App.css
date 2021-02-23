@@ -2,14 +2,13 @@
     width: 100%;
 }
 
-.App  .sallve-productList {
-  border-right: solid 1px #ccc;
+.sallve-productList {
   overflow-y: auto;
   height: 80vh;
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
