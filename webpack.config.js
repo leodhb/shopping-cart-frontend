@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'bundle.[hash].js',
+    filename: 'sallve.bundle.[hash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   mode: 'production',

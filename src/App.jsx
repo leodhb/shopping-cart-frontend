@@ -1,48 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Header   from './components/Header/Header';
-import Products from './components/Products/Products';
-import CartItem from './components/Cart/CartItem/CartItem';
+import Header    from './components/Header/Header';
+import Products  from './components/Products/Products';
+import CartItem  from './components/Cart/CartItem/CartItem';
+import Preloader from './components/Shared/preloader';
+import ErrorBox  from './components/Shared/errorScreen';
+
+import {loadSessionId} from './helpers/localStorage';
 
 const App = () => {
   const [productList, setProductList] = useState([]);
   const [cart, setCart]               = useState([]);
   const [error, setError]             = useState(null);
   const [loaded, isLoaded]            = useState(false);
-
+  const [sessionId, setSessionId]     = useState('teste de corno');
 
 
   useEffect(() => {
-    fetch("https://sallve-d7cfc-default-rtdb.firebaseio.com/products.json")
+    fetch("http://localhost:3000/products")
     .then(res => res.json())
     .then(
       (result) => {
-        setProductList(result.products);
+        setProductList(result);
         isLoaded(true);
+        setError(null);
+        loadSessionId('@sallve-app/cartID').then((result) => setSessionId(result));
       },
       (error) => {
         isLoaded(true);
-        setError(error);
+        setError(error.message);
       }
     )
   }, []);
 
-
   const addToCartHandler = (sku, amount) => {
       console.log('Adicionando ' + amount, sku + ' ao carrinho!');
+      console.log(sessionId);
   }
-
 
   let productDivContent = null;
 
   if (error) {
-    productDivContent =  <div>Erro</div>;
+    productDivContent =  <ErrorBox error={error} ></ErrorBox>;
   } else if (!loaded) {
-    productDivContent =  <div className="text-center mt-4 w-100"> <h1>Loading...</h1> </div>;
+    productDivContent =  <Preloader></Preloader>;
   } else {
     productDivContent =  <Products list={productList} clicked={addToCartHandler} />
   }
-
 
   return (
     <div className="App">
