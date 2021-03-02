@@ -1,8 +1,7 @@
 import React, { createContext } from 'react';
 
 const ProductsContext = createContext({
-    products: [],
-    setProducts: () => {}
+    products: []
 });
 
 export default ProductsContext;
