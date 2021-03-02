@@ -1,17 +1,17 @@
-.sallve-ProductCard {
+.product-card {
     border: none !important;
 }
 
-.sallve-ProductTitle {
+.product-title {
     color: #333;
     font-weight: 700;
 }
 
-.sallve-ProductTitle:hover {
+.product-title:hover {
     color: var(--s-purple);
 }
 
-.sallve-ComprarBtn {
+.comprar-btn {
     display: inline-block;
     font-weight: 600;
     width: 100%;
@@ -28,7 +28,7 @@
     border: none;
 }
 
-.sallve-ComprarBtn:hover {
+.comprar-btn:hover {
     text-decoration: none;
     color: white;
     background-color: var(--s-purple);
