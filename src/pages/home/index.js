@@ -3,7 +3,9 @@ import './styles.css';
 import ProductsContext from '../../contexts/ProductsContext';
 import CartContext from '../../contexts/CartContext';
 import Header from '../../components/Header';
+
 import ProductList from '../../components/ProductList';
+import Cart from '../../components/Cart';
 
 import api from '../../services/api';
 
@@ -41,6 +43,7 @@ const Home = props => {
                             <ProductList></ProductList>
                         </div>
                         <div className="col-lg-6">
+                            <Cart></Cart>
                         </div>
                     </div>
                 </div>
