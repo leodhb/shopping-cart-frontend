@@ -5,15 +5,24 @@ export const ProductsContext = createContext();
 
 const ProductContextProvider = ({children}) => {
     const [products, setProducts] = useState([]);
+    const [productsError, setProductsError] = useState(false);
+    const [isProductsLoaded, setProductsLoaded] = useState(false);
 
     useEffect( async () => {
-        const response = await api.get(`/products`);
-        const list = response.data;
-        setProducts(list);
+        try {
+            const response = await api.get(`/products`);
+            const list = response.data;
+            setProducts(list);
+            setProductsLoaded(true);
+        } catch {
+            setProductsLoaded(true);
+            setProductsError(true);
+        }
+        
     }, []);
 
  return (
-    <ProductsContext.Provider value={{products, setProducts}}>
+    <ProductsContext.Provider value={{products, productsError, isProductsLoaded}}>
         {children}
     </ProductsContext.Provider>
  )
