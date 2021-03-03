@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Home from  './pages/home';
-import SessionContext from './contexts/SessionContext';
-import {loadSessionId} from './helpers/localStorage';
+import SessionContextProvider from './contexts/SessionContext';
+import ProductContextProvider from './contexts/ProductsContext';
+import CartContextProvider from './contexts/CartContext';
 
 const App = () => {
-  const [sessionId, setSessionId] = useState('');
-
-  useEffect(() => {
-    loadSessionId('@sallve-app/ssessId').then(result => setSessionId(result));
-  }, []);
-
   return (
-      <Home sessionId={sessionId}/>
+    <SessionContextProvider>
+      <ProductContextProvider>
+          <CartContextProvider>
+              <Home/>
+        </CartContextProvider>
+      </ProductContextProvider>
+    </SessionContextProvider>
   );
 }
 
