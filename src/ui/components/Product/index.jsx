@@ -1,23 +1,28 @@
 import React, { useContext } from 'react';
 import './styles.css';
-import {CartContext} from '../../contexts/CartContext';
+import { CartContext } from '../../contexts/CartContext';
 
-const Product = props => {
-    const {addToCart} = useContext(CartContext);
+const Product = (props) => {
+  const { addToCart } = useContext(CartContext);
 
-    return (
-        <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
-            <div className="card product-card">
-                <img src={props.image} className="card-img-top"  alt={props.name}></img>
-                <div className="card-body px-0">
-                    <h5 className="product-title">{props.name}</h5>
-                    <h5 className="my-2">R$ {props.price} </h5>
-                    
-                    <button onClick={() => addToCart(props.sku, 1)} className="comprar-btn">comprar</button>
-                </div>
-            </div>
+  return (
+    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
+      <div className="card product-card">
+        <img src={props.image} className="card-img-top" alt={props.name}></img>
+        <div className="card-body px-0">
+          <h5 className="product-title">{props.name}</h5>
+          <h5 className="my-2">R$ {props.price} </h5>
+
+          <button
+            onClick={() => addToCart(props.sku, 1)}
+            className="comprar-btn"
+          >
+            comprar
+          </button>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Product; 
+export default Product;

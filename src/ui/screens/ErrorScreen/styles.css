@@ -1,11 +1,10 @@
 .error-container {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .error-icon {
-    width: 200px;
-    margin-top: 20%;
-    margin-bottom: 50px;
-
+  width: 200px;
+  margin-top: 20%;
+  margin-bottom: 50px;
 }
