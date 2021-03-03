@@ -47,17 +47,15 @@
   
   .total {
     display: flex;
-    float: right;
+    align-items: baseline;
   }
   
-  .total span {
-    color: #878C99;
-    font-weight: bold;
-    margin-top: 5px;
-  }
-  
-  .total strong {
+  .total-text {
     font-size: 28px;
     margin-left: 5px;
   }
-  
+  .cart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
