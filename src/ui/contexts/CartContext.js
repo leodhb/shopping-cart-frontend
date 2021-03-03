@@ -9,6 +9,7 @@ const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([]);
     const [isCartLoaded, setCartLoaded] = useState(false);
     const [isCartEmpty, setCartEmpty] = useState(true);
+    const [isChanging, setChanging]   = useState(false);
 
     const {sessionId} = useContext(SessionContext);
 
