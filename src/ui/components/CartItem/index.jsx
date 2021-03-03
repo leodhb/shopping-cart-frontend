@@ -38,7 +38,7 @@ const CartItem = props => {
                       <button onClick={() => {if(amountHandler(-1)) updateCart(SKU, -1)}} className="change-qty-btn mx-1" type="button">-</button>
                       <span className="qty-amount">{qty}</span>
                       <button onClick={() => {if(amountHandler(1)) updateCart(SKU, 1)}} className="change-qty-btn mx-1" type="button">+</button>
-                    <h5 className="cart-item-price my-auto ml-4">R$ {totalItemValue}</h5>
+                    <h5 className="cart-item-price my-auto ml-4">R$ {totalItemValue.toFixed(2)}</h5>
                 </div>
              </td>
           </tr>
