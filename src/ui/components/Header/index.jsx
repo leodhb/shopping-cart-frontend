@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import logo from '../../assets/img/logo-sallve.png';
+import logo from '../../../assets/img/logo-sallve.png';
 
 const Header = () => {
     return (

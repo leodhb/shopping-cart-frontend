@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import {loadSessionId} from '../helpers/localStorage';
+import {loadSessionId} from '../../helpers/localStorage';
 
 export const SessionContext = createContext();
 

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './styles.css';
-import CloseIcon from '../../assets/img/close_icon.png';
+import CloseIcon from '../../../assets/img/close_icon.png';
 import {CartContext} from '../../contexts/CartContext';
 
 const CartItem = props => {

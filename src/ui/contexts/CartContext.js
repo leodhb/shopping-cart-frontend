@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import {SessionContext} from './SessionContext';
-import api from '../services/api';
+import api from '../../services/api';
 
 export const CartContext = createContext();
 

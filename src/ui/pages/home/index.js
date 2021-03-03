@@ -1,21 +1,25 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './styles.css';
-import Header from '../../components/Header';
+import Header      from '../../components/Header';
 import ProductList from '../../components/ProductList';
-import Cart from '../../components/Cart';
+import Cart        from '../../components/Cart';
+
 import {CartContext} from '../../contexts/CartContext';
 
 const Home = () => {
   const {cart, isCartLoaded} = useContext(CartContext);
+  const [cartDiv, setCartDiv]  = useState();
 
-
-  let myCart = <h1>Sacola vazia</h1>;
 
   useEffect(() => {
-    if(isCartLoaded) {
-    
-    }
-  }, [isCartLoaded]);
+      if(isCartLoaded) {
+          if(cart.totalCartValue === 0) {
+              setCartDiv(<h1>Carrinho zerado brou</h1>)
+          } else {
+              setCartDiv(<Cart></Cart>)
+          }
+      }
+  }, [cart, isCartLoaded]);
 
   return (
             <>
@@ -26,7 +30,7 @@ const Home = () => {
                             <ProductList></ProductList>
                         </div>
                         <div className="col-lg-6">
-                            <Cart></Cart>
+                            {cartDiv}
                         </div>
                     </div>
                 </div>
