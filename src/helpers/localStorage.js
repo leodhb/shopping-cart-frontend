@@ -8,6 +8,5 @@ export const loadSessionId = async (itemName) => {
             await localStorage.setItem(itemName, myNewId);
             savedCartId = await localStorage.getItem(itemName);
       }
-      
       return savedCartId;
 };
