@@ -25,6 +25,7 @@ const Cart = () => {
     const cartWithItems = (
         <div className="col-lg-8 col-md-12">
             <div className="cart-container">
+                <h2 className="cart-header">Sua sacola</h2>
                 <table className="items-table">
                     <tbody>
                         {myCart}
