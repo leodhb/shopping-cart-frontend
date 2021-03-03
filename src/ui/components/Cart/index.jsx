@@ -23,6 +23,7 @@ const Cart = () => {
     }
 
     const cartWithItems = (
+        <div className="col-lg-8 col-md-12">
         <div className="cart-container">
                     <table className="items-table">
                     <tbody>
@@ -32,9 +33,10 @@ const Cart = () => {
                     <footer>
                         <div className="total">
                                 <span>Total: </span>
-                                <strong>R$ {isCartLoaded ? cart.totalCartValue : '0.00'}</strong>
+                                <strong>R$ {isCartLoaded ? cart.totalCartValue.toFixed(2) : '0.00'}</strong>
                         </div>
                     </footer>
+                </div>
                 </div>
     );
 
@@ -42,9 +44,9 @@ const Cart = () => {
 
     return (
         <div className="row justify-content-center">
-            <div className="col-lg-8 col-md-12">
+            
                 {isCartEmpty ? cartWithoutItems : cartWithItems}
-            </div>
+            
         </div>
     )
 }
