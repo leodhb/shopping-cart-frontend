@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import './styles.css';
 import CartItem from '../CartItem';
 import { CartContext } from '../../contexts/CartContext';
@@ -24,29 +24,27 @@ const Cart = () => {
 
     const cartWithItems = (
         <div className="col-lg-8 col-md-12">
-        <div className="cart-container">
-                    <table className="items-table">
+            <div className="cart-container">
+                <table className="items-table">
                     <tbody>
                         {myCart}
                     </tbody>
-                    </table>
-                    <footer>
-                        <div className="total">
-                                <span>Total: </span>
-                                <strong>R$ {isCartLoaded ? cart.totalCartValue.toFixed(2) : '0.00'}</strong>
-                        </div>
-                    </footer>
-                </div>
-                </div>
+                </table>
+                <footer className="cart-footer">
+                    <strong className="total-text">Total:</strong>
+                    <div className="total">
+                        <strong className="total-text">R$ {isCartLoaded ? cart.totalCartValue.toFixed(2) : '0.00'}</strong>
+                    </div>
+                </footer>
+            </div>
+        </div>
     );
 
     const cartWithoutItems = <EmptyCartScreen/>;
 
     return (
         <div className="row justify-content-center">
-            
                 {isCartEmpty ? cartWithoutItems : cartWithItems}
-            
         </div>
     )
 }
