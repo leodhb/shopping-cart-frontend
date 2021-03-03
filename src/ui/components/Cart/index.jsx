@@ -18,7 +18,7 @@ const Cart = () => {
           return sku.id === item.SKU;
         });
       });
-      return <CartItem key={item.SKU} item={item} product={product}></CartItem>;
+      return <CartItem key={item.SKU} cartSize={cart.items.length} item={item} product={product}></CartItem>;
     });
   }
 
