@@ -1,12 +1,15 @@
 {
+  "homepage": "https://leodhb.github.io/shopping-cart-frontend",
   "name": "sallve-frontend",
   "version": "1.0.0",
   "description": "This is a part of Sallve pre-employment test",
-  "repository": "https://github.com/leodhb/sallve-front",
+  "repository": "https://github.com/leodhb/shopping-cart-frontend",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server -d --open"
+    "start": "webpack-dev-server -d --open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +37,7 @@
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.22.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "4.5.0",
     "prettier": "^2.2.1",
     "style-loader": "^2.0.0",
