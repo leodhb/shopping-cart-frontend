@@ -30,6 +30,9 @@
 
 .comprar-btn:hover {
     text-decoration: none;
+    border: none;
     color: white;
     background-color: var(--s-purple);
 }
+
+
