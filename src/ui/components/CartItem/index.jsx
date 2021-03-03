@@ -6,7 +6,7 @@ import {CartContext} from '../../contexts/CartContext';
 const CartItem = props => {
     const {SKU, qty, totalItemValue} = props.item;
     const {name, image} = props.product;
-    const {updateCart, deleteFromCart, isChanging} = useContext(CartContext);
+    const {updateCart, deleteFromCart} = useContext(CartContext);
 
     const productInventory = props.product.sku.find(item => item.id === SKU).inventory;
 
