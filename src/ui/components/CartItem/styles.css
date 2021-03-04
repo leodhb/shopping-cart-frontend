@@ -10,6 +10,11 @@
   font-weight: bold;
 }
 
+.change-qty-btn:hover {
+  color: white;
+  background-color: var(--s-dark);
+}
+
 .qty-amount {
   border: none;
   width: 30px;
@@ -35,8 +40,13 @@ img.delete-product-btn {
   top: 0px;
   right: 0px;
   cursor: pointer;
+  transition: linear 0.1s;
 }
 
+img.delete-product-btn:hover {
+  filter: saturate(500%) contrast(800%) brightness(10%) 
+      invert(50%) sepia(500%) hue-rotate(250deg); 
+}
 .cart-img-container {
   text-align: center;
 }
