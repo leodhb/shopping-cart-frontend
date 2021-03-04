@@ -6,7 +6,7 @@ import { CartContext } from '../../contexts/CartContext';
 const CartItem = (props) => {
   const { SKU, qty, totalItemValue } = props.item;
   const { name, image } = props.product;
-  const { updateCart, deleteFromCart } = useContext(CartContext);
+  const { updateCart, deleteFromCart, setCartEmpty } = useContext(CartContext);
   const [visible, setVisible] = useState(true);
 
   const productInventory = props.product.sku.find((item) => item.id === SKU)
@@ -47,6 +47,8 @@ const CartItem = (props) => {
                 onClick={() => {
                   if (props.cartSize > 1) {
                     setVisible(false);
+                  } else {
+                    setCartEmpty(true);
                   }
                   deleteFromCart(SKU);
                 }}

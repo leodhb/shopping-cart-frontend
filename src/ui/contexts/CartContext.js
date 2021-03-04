@@ -68,6 +68,7 @@ const CartContextProvider = ({ children }) => {
         isCartLoaded,
         isCartEmpty,
         setCart,
+        setCartEmpty,
         addToCart,
         updateCart,
         deleteFromCart,
