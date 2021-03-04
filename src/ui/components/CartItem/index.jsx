@@ -59,7 +59,7 @@ const CartItem = (props) => {
                 onClick={() => {
                   if (amountHandler(-1)) updateCart(SKU, -1);
                 }}
-                className="change-qty-btn mx-1"
+                className="btn change-qty-btn mx-1"
                 type="button"
               >
                 -
@@ -69,7 +69,7 @@ const CartItem = (props) => {
                 onClick={() => {
                   if (amountHandler(1)) updateCart(SKU, 1);
                 }}
-                className="change-qty-btn mx-1"
+                className="btn change-qty-btn mx-1"
                 type="button"
               >
                 +
