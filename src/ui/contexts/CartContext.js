@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { SessionContext } from './SessionContext';
+import { ProductsContext } from './ProductsContext';
 
 import api from '../../services/api';
 
@@ -11,19 +12,21 @@ const CartContextProvider = ({ children }) => {
   const [isCartEmpty, setCartEmpty] = useState(true);
   const [isChanging, setChanging] = useState(false);
 
-  const { sessionId } = useContext(SessionContext);
+  const { sessionId }        = useContext(SessionContext);
+  const { isProductsLoaded } = useContext(ProductsContext);
 
   useEffect(async () => {
-    if (sessionId) {
+    if (sessionId && isProductsLoaded) {
       const response = await api.get(`/cart/${sessionId}`);
       const list = response.data;
+      console.log('lista', list);
       setCart(list);
       setCartLoaded(true);
       if (list.items.length) setCartEmpty(false);
 
       console.log('MEU CARRINHO: ', list);
     }
-  }, [sessionId]);
+  }, [sessionId, isProductsLoaded]);
 
   const addToCart = async (sku, amount) => {
     const response = await api.put(`/cart/${sessionId}`, {
