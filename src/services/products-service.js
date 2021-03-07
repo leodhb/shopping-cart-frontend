@@ -1,7 +1,12 @@
 import api from './api';
 
-export const fetchProducts = async () => {
-    const response = await api.get(`/products`);
-    return response.data;
-}
+const getProducts = async () => {
+  const response = await api.get(`/products`);
+  return response.data;
+};
 
+const ProductsService = {
+  getProducts,
+};
+
+export default ProductsService;
