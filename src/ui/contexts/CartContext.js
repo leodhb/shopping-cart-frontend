@@ -17,7 +17,7 @@ const CartContextProvider = ({ children }) => {
   /* get cart by id */
   useEffect(async () => {
     if (sessionId && isProductsLoaded) {
-      const list = await API.getCart();
+      const list = await API.getCart(sessionId);
       setCart(list);
       setCartLoaded(true);
       if (list.items.length) setCartEmpty(false);
