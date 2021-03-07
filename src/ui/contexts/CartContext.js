@@ -1,8 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { SessionContext } from './SessionContext';
 import { ProductsContext } from './ProductsContext';
-
-import api from '../../services/api';
+import API from '../../services/cart-service';
 
 export const CartContext = createContext();
 
@@ -12,53 +11,39 @@ const CartContextProvider = ({ children }) => {
   const [isCartEmpty, setCartEmpty] = useState(true);
   const [isChanging, setChanging] = useState(false);
 
-  const { sessionId }        = useContext(SessionContext);
+  const { sessionId } = useContext(SessionContext);
   const { isProductsLoaded } = useContext(ProductsContext);
 
+  /* get cart by id */
   useEffect(async () => {
     if (sessionId && isProductsLoaded) {
-      const response = await api.get(`/cart/${sessionId}`);
-      const list = response.data;
-      console.log('lista', list);
+      const list = await API.getCart();
       setCart(list);
       setCartLoaded(true);
       if (list.items.length) setCartEmpty(false);
-
-      console.log('MEU CARRINHO: ', list);
     }
   }, [sessionId, isProductsLoaded]);
 
+  /* add product to cart */
   const addToCart = async (sku, amount) => {
-    const response = await api.put(`/cart/${sessionId}`, {
-      sku: sku,
-      qty: amount,
-    });
-    const list = response.data;
+    const list = await API.addToCart(sku, amount, sessionId);
     setCart(list);
     if (isCartEmpty) setCartEmpty(false);
-
-    console.log('MEU CARRINHO DEPOIS DE ADICIONAR PRODUTO: ', list);
   };
 
+  /* update cart */
   const updateCart = async (sku, amount) => {
     setChanging(true);
-    const response = await api.patch(`/cart/${sessionId}`, {
-      sku: sku,
-      qty: amount,
-    });
-    const list = response.data;
+    const list = await API.updateCart(sku, amount, sessionId);
     setCart(list);
     setChanging(false);
-    console.log('MEU CARRINHO DEPOIS DE MODIFICAR PRODUTO: ', list);
   };
 
+  /* delete product from cart */
   const deleteFromCart = async (sku) => {
-    const response = await api.delete(`/cart/${sessionId}/${sku}`);
-    const list = response.data;
+    const list = await API.deleteFromCart(sku, sessionId);
     setCart(list);
     if (list.items.length === 0) setCartEmpty(true);
-
-    console.log('MEU CARRINHO DEPOIS DE DELETAR PRODUTO: ', list);
   };
 
   return (
