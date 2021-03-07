@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import api from '../../services/api';
+import {fetchProducts} from '../../services/products-service';
+
 
 export const ProductsContext = createContext();
 
@@ -10,8 +11,7 @@ const ProductContextProvider = ({ children }) => {
 
   useEffect(async () => {
     try {
-      const response = await api.get(`/products`);
-      const list = response.data;
+      const list = await fetchProducts();
       setProducts(list);
       setProductsLoaded(true);
     } catch {
