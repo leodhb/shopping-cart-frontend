@@ -17,15 +17,15 @@ context('Ações e2e', () => {
 
     cy.get('.change-qty-btn').contains('+').click();
 
-    cy.wait(500);
+    cy.wait(1500);
 
     cy.get('.change-qty-btn').contains('+').click();
 
-    cy.wait(500);
+    cy.wait(1500);
 
     cy.get('.change-qty-btn').contains('+').click();
 
-    cy.wait(500);
+    cy.wait(1500);
 
     cy.get('.qty-amount').first().should('contain', '4');
     cy.get('strong.total-text').should('contain', 'R$ 239.60');
