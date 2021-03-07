@@ -4,7 +4,7 @@ import CloseIcon from '../../../assets/img/close_icon.png';
 import { CartContext } from '../../contexts/CartContext';
 
 const CartItem = (props) => {
-  const { SKU, qty, totalItemValue } = props.item;
+  const { SKU, qty, totalItemValue, unitValue } = props.item;
   const { name, image } = props.product;
   const { updateCart, deleteFromCart, setCartEmpty } = useContext(CartContext);
   const [visible, setVisible] = useState(true);
@@ -18,12 +18,14 @@ const CartItem = (props) => {
       case 1:
         if (number + qty <= productInventory) {
           props.item.qty++;
+          //props.item.totalItemValue = props.item.qty * props.item.unitValue;
           return true;
         }
         break;
       case -1:
         if (number + qty > 0) {
           props.item.qty--;
+          //props.item.totalItemValue = props.item.qty * props.item.unitValue;
           return true;
         }
         break;
